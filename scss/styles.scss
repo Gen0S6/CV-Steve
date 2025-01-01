@@ -59,10 +59,10 @@ header {
     bottom: 0;
     filter: contrast(120%);
     @include tel {
-      display: block;
       justify-self: end;
       position: relative;
-      top: 5.2rem;
+      // top: 5.2rem;
+      bottom: 0;
       right: 0;
       height: 25rem;
       border-radius: 50%;
