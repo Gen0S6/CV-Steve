@@ -87,27 +87,98 @@ a {
   margin-bottom: 1rem;
 }
 
+.star {
+  animation: star 10s infinite linear;
+}
+.star-2 {
+  animation: star-2 10s infinite linear;
+}
+.star-3 {
+  animation: star-3 10s infinite linear;
+}
+.star-4 {
+  animation: star-4 10s infinite linear;
+}
+.star-5 {
+  animation: star-5 10s infinite linear;
+}
+
+@keyframes star {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes star-2 {
+  0% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(380deg);
+  }
+}
+@keyframes star-3 {
+  0% {
+    transform: rotate(40deg);
+  }
+  100% {
+    transform: rotate(400deg);
+  }
+}
+@keyframes star-4 {
+  0% {
+    transform: rotate(60deg);
+  }
+  100% {
+    transform: rotate(420deg);
+  }
+}
+@keyframes star-5 {
+  0% {
+    transform: rotate(80deg);
+  }
+  100% {
+    transform: rotate(440deg);
+  }
+}
+@keyframes dot {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
 .container {
+  min-height: 100vh;
   display: grid;
-  grid: "profil header" auto "aside main" 1fr "footer footer" auto/23rem 1fr;
+  grid: "header profil " 25rem " main aside" 1fr "footer footer" auto/1fr 30rem;
 }
 @media (max-width: 480px) {
   .container {
-    grid: "header" auto "main" 1fr "profil" auto "aside" auto "footer" auto/auto;
+    grid: "header" auto "main" 1fr "profil" 0.8rem "aside" auto "footer" auto/auto;
   }
 }
 
 header {
-  text-align: center;
   grid-area: header;
   background: linear-gradient(to right, var(--primary), var(--light));
   color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 header h1 {
   font-weight: 300;
   font-size: 5rem;
   letter-spacing: 1rem;
   padding: 5rem;
+  text-align: center;
 }
 @media (max-width: 480px) {
   header h1 {
@@ -119,7 +190,7 @@ header h1 {
 .profil {
   position: relative;
   grid-area: profil;
-  background: white;
+  background: var(--background);
 }
 .profil img {
   position: absolute;
@@ -128,7 +199,11 @@ header h1 {
 }
 @media (max-width: 480px) {
   .profil img {
+    justify-self: end;
     position: relative;
+    top: 5.2rem;
+    height: 25rem;
+    border-radius: 50%;
   }
 }
 
@@ -147,6 +222,18 @@ aside p {
   margin: 0;
   font-style: italic;
   opacity: 0.9;
+}
+aside p a {
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+}
+aside p a i {
+  margin-right: 0.5rem;
+}
+aside p a:hover {
+  color: var(--secondary);
+  font-size: 1.5rem;
 }
 aside .skill_bar {
   height: 0.3rem;
@@ -168,6 +255,8 @@ aside .skill_bar_dot {
   background: var(--dark);
   top: -0.15rem;
   left: 100%;
+  animation: dot 1s infinite linear;
+  cursor: grab;
 }
 aside .fa-star {
   color: var(--light);
@@ -185,6 +274,14 @@ main h2 {
 main p {
   line-height: 2.3rem;
   margin-bottom: 5rem;
+}
+main .profile {
+  text-align: center;
+}
+@media (max-width: 480px) {
+  main .profile {
+    text-align: initial;
+  }
 }
 main .experience {
   display: flex;
@@ -226,15 +323,16 @@ footer .form {
   background: linear-gradient(to right, var(--primary), var(--secondary));
   width: auto;
   margin: 1rem;
-  padding: 0rem 1.2rem;
+  padding: 0rem 1.5rem;
   border-radius: 0.5rem;
 }
 footer .form i {
   color: var(--background);
+  padding: 0 0.4rem;
 }
 footer .form input {
-  height: 3rem;
-  width: 25rem;
+  height: 3.5rem;
+  width: 26rem;
   outline: none;
 }
 @media (max-width: 480px) {

@@ -1,0 +1,79 @@
+.star {
+  animation: star 10s infinite linear;
+  &-2 {
+    animation: star-2 10s infinite linear;
+  }
+  &-3 {
+    animation: star-3 10s infinite linear;
+  }
+  &-4 {
+    animation: star-4 10s infinite linear;
+  }
+  &-5 {
+    animation: star-5 10s infinite linear;
+  }
+}
+
+@keyframes star {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes star-2 {
+  0% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(380deg);
+  }
+}
+
+@keyframes star-3 {
+  0% {
+    transform: rotate(40deg);
+  }
+
+  100% {
+    transform: rotate(400deg);
+  }
+}
+
+@keyframes star-4 {
+  0% {
+    transform: rotate(60deg);
+  }
+
+  100% {
+    transform: rotate(420deg);
+  }
+}
+
+@keyframes star-5 {
+  0% {
+    transform: rotate(80deg);
+  }
+
+  100% {
+    transform: rotate(440deg);
+  }
+}
+
+@keyframes dot {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.1;
+  }
+
+  100% {
+    scale: 1;
+  }
+}

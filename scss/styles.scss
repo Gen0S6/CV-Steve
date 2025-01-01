@@ -1,23 +1,25 @@
 @use "reset";
 @use "bases";
 @use "classes";
+@use "animations";
 @import "media-query";
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200..1000&display=swap");
 
 // container
 
 .container {
+  min-height: 100vh;
   display: grid;
   grid:
-    "profil header" auto
-    "aside main" 1fr
+    "header profil " 25rem
+    " main aside" 1fr
     "footer footer" auto
-    / 23rem 1fr;
+    / 1fr 30rem;
   @include tel {
     grid:
       "header" auto
       "main" 1fr
-      "profil" auto
+      "profil" 0.8rem
       "aside" auto
       "footer" auto
       / auto;
@@ -27,15 +29,18 @@
 // header
 
 header {
-  text-align: center;
   grid-area: header;
   background: linear-gradient(to right, var(--primary), var(--light));
   color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   h1 {
     font-weight: 300;
     font-size: 5rem;
     letter-spacing: 1rem;
     padding: 5rem;
+    text-align: center;
     @include tel {
       font-size: 4rem;
       padding: 3rem;
@@ -48,13 +53,17 @@ header {
 .profil {
   position: relative;
   grid-area: profil;
-  background: white;
+  background: var(--background);
   img {
     position: absolute;
     bottom: 0;
     filter: contrast(120%);
     @include tel {
+      justify-self: end;
       position: relative;
+      top: 5.2rem;
+      height: 25rem;
+      border-radius: 50%;
     }
   }
 }
@@ -76,6 +85,18 @@ aside {
     margin: 0;
     font-style: italic;
     opacity: 0.9;
+    a {
+      transition: all 0.5s;
+      display: flex;
+      align-items: center;
+      i {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        color: var(--secondary);
+        font-size: 1.5rem;
+      }
+    }
   }
   .skill_bar {
     height: 0.3rem;
@@ -96,6 +117,8 @@ aside {
       background: var(--dark);
       top: -0.15rem;
       left: 100%;
+      animation: dot 1s infinite linear;
+      cursor: grab;
     }
   }
   .fa-star {
@@ -116,6 +139,12 @@ main {
   p {
     line-height: 2.3rem;
     margin-bottom: 5rem;
+  }
+  .profile {
+    text-align: center;
+    @include tel {
+      text-align: initial;
+    }
   }
   .experience {
     display: flex;
@@ -162,16 +191,17 @@ footer {
     background: linear-gradient(to right, var(--primary), var(--secondary));
     width: auto;
     margin: 1rem;
-    padding: 0rem 1.2rem;
+    padding: 0rem 1.5rem;
     border-radius: 0.5rem;
 
     i {
       color: var(--background);
+      padding: 0 0.4rem;
     }
 
     input {
-      height: 3rem;
-      width: 25rem;
+      height: 3.5rem;
+      width: 26rem;
       outline: none;
       @include tel {
         width: 20rem;
