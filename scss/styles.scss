@@ -203,6 +203,8 @@ footer {
       height: 3.5rem;
       width: 26rem;
       outline: none;
+      border: none;
+      border-radius: 0%;
       @include tel {
         width: 20rem;
       }
